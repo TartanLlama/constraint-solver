@@ -1,0 +1,8 @@
+#!/bin/bash
+#Converts the given input format into s-expressions to make parsing easy
+sed -r -i 's/\/\/.+//g' $1
+sed -r -i 's/,/ /g' $1
+sed -r -i 's/c\((.+)\)/c \1/g' $1
+sed -r -i 's/(.+)/(\1)/g' $1
+sed -i '1i(' $1
+echo ")" >> $1

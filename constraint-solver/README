@@ -1,0 +1,26 @@
+To run the tests, open up sbcl and type
+(require 'constraint-solver)
+(in-package #:constraint-solver)
+(run-all-tests)
+
+To run the solver on a csp instance, open up sbcl and type
+(require 'constraint-solver)
+(in-package #:constraint-solver)
+(run-solver-on-file #'<solver> <filename> '<ordering>)
+
+Where solver is one of:
+backtracking
+forward-checking
+mac3
+
+Ordering is one of:
+greatest-deg
+lowest-deg
+default
+lowest-deg-dom
+greatest-deg-dom
+smallest-dom
+largest-dom
+
+If running on a machine which doesn't have cl-ppcre installed, you may first need to run
+(push (truename "cl-ppcre-2.0.3") asdf:*central-registry*)
